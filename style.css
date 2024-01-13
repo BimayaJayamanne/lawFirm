@@ -1,10 +1,11 @@
 body {
-	background: #1690A7;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
-	flex-direction: column;
+    background-color: #f2f2f2;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 *{
@@ -25,7 +26,7 @@ h2 {
 	margin-bottom: 40px;
 }
 h3 {
-    color: #333;
+    color: #f4eeee;
 }
 input {
 	display: block;
@@ -77,6 +78,7 @@ a {
 	margin-right: 10px;
 	border: none;
 	text-decoration: none;
+    text-align: left;
 }
 a:hover{
 	opacity: .7;

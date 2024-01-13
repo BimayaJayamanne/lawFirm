@@ -27,24 +27,24 @@
         // Handle the form submission
         if (isset($_POST['search'])) {
             // Retrieve the client details from the database based on the provided name
-            $clientName = $_POST['clientName'];
+            $caseNumber = $_POST['caseNumber'];
 
             // Implement your database query here to fetch client details
             // Example:
-            $query = "SELECT ID, clName, clPhone, clAddress, caseNum FROM client_details WHERE clName = ?";
+            $query = "SELECT ID, caseNum, nextDate, court, lawyer, client, stepsTaken FROM case_details WHERE caseNum = ?";
             $stmt = mysqli_prepare($conn, $query);
-            mysqli_stmt_bind_param($stmt, "s", $clientName);
+            mysqli_stmt_bind_param($stmt, "s", $caseNumber);
             mysqli_stmt_execute($stmt);
             $result = mysqli_stmt_get_result($stmt);
 
             // Display the client details
-            echo "<h3>Client Details</h3>";
+            echo "<h3>Case Details</h3>";
             echo "<table>";
-            echo "<tr><th>ID</th><th>Name</th><th>Phone</th><th>Address</th><th>Case Number</th></tr>";
+            echo "<tr><th>ID</th><th>Case Number</th><th>Next Date</th><th>Court</th><th>Lawyer</th><th>Client</th><th>StepsTaken</th></tr>";
 
             // Loop through the database results and display client details
             while ($row = mysqli_fetch_assoc($result)) {
-                echo "<tr><td>{$row['ID']}</td><td>{$row['clName']}</td><td>{$row['clPhone']}</td><td>{$row['clAddress']}</td><td>{$row['caseNum']}</td></tr>";
+                echo "<tr><td>{$row['ID']}</td><td>{$row['caseNum']}</td><td>{$row['nextDate']}</td><td>{$row['court']}</td><td>{$row['lawyer']}</td><td>{$row['client']}</td><td>{$row['stepsTaken']}</td></tr>";
             }
 
             echo "</table>";

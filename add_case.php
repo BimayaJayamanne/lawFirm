@@ -28,14 +28,13 @@
     </form>
 
     <?php
-    // Include the database connection file
+   
     include('db_conn.php');
 
-    // Check if the connection is successful
     if ($conn) {
-        // Handle the form submission
+        // Handling the form submission
         if (isset($_POST['add'])) {
-            // Retrieve the case details from the form
+            // Retrieving the case details from the form
             $caseNum = $_POST['caseNum'];
             $nextDate = $_POST['nextDate'];
             $court = $_POST['court'];
@@ -43,7 +42,7 @@
             $client = $_POST['client'];
             $stepsTaken = $_POST['stepsTaken'];
 
-            // Implement your database query to add the new case
+            // Implementing database query to add the new case
             $query = "INSERT INTO case_details (caseNum, nextDate, court, lawyer, client, stepsTaken) VALUES (?, ?, ?,?,?,?)";
             $stmt = mysqli_prepare($conn, $query);
             mysqli_stmt_bind_param($stmt, "ssssss", $caseNum, $nextDate, $court, $lawyer,$client, $stepsTaken);

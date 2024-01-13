@@ -9,10 +9,10 @@
 <h2 class="display-4">Client Management</h2>
 
 <?php
-// Check the specific action requested (search or add)
+// specific action requested (search or add)
 $action = isset($_GET['action']) ? $_GET['action'] : '';
 
-// Include the corresponding PHP file based on the action
+//  PHP file based on the action
 switch ($action) {
     case 'search':
         include('search_client.php');
@@ -21,8 +21,6 @@ switch ($action) {
         include('add_client.php');
         break;
     default:
-        // Display a default message or options
-
         echo '<p>Please select an option: 
                 <div class="d-grid gap-2">
                     <a href="lawfirm_home.php?page=client_management&action=search" class="btn btn-primary btn-lg">Search</a>

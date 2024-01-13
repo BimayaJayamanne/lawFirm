@@ -32,7 +32,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['userName'])) {
                     <li><a href="lawfirm_home.php?page=dashboard">Dashboard</a></li>
                     <li><a href="lawfirm_home.php?page=client_management">Client Management</a></li>
                     <li><a href="lawfirm_home.php?page=case_management">Case Management</a></li>
-                    <li><a href="lawfirm_home.php?page=forms">Forms</a></li>
+                    <!-- <li><a href="lawfirm_home.php?page=forms">Forms</a></li> -->
                     <li><a href="lawfirm_home.php?page=billing_and_payments">Billing and Payments</a></li>
                </ul>
           </nav>
