@@ -13,10 +13,13 @@
             background-repeat: no-repeat;
             height: 100vh; 
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
         }
-
+        header {
+            text-align: center;
+        }
         .container {
             background-color: rgba(255, 255, 255, 0.8); 
             padding: 20px;
@@ -26,6 +29,9 @@
     </style>
 </head>
 <body>
+<header>
+        <h1>Law Firm Management System</h1>
+    </header>
 	<div class="container">
      <form action="login.php" method="post">
      	<h2>LOGIN</h2>

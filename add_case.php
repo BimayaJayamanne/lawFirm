@@ -32,7 +32,7 @@
     include('db_conn.php');
 
     if ($conn) {
-        // Handling the form submission
+        
         if (isset($_POST['add'])) {
             // Retrieving the case details from the form
             $caseNum = $_POST['caseNum'];

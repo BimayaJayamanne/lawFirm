@@ -13,68 +13,67 @@
 </head>
 
 <body>
-<div class="container">
-<div class="row">
-<div class="col-md-6">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
 
-    <h2 class="text-primary"><strong>Search Client</h2>
+                <h2 class="text-primary"><strong>Search Client</h2>
 
-    <form method="post" action="">
-        <label for="clientName">Client Name:</label>
-        <input type="text" name="clientName" required>
-        <button type="submit" class="btn btn-primary" name="search">Search</button>
-        
-    </form>
+                <form method="post" action="">
+                    <label for="clientName">Client Name:</label>
+                    <input type="text" name="clientName" required>
+                    <button type="submit" class="btn btn-primary" name="search">Search</button>
 
-    <?php
-    // Include the database connection file
-    include('db_conn.php');
+                </form>
 
-    // Check if the connection is successful
-    if ($conn) {
-        // Handle the form submission
-        if (isset($_POST['search'])) {
-            // Retrieve the client details from the database based on the provided name
-            $clientName = $_POST['clientName'];
+                <?php
 
-            // Implement your database query here to fetch client details
-            // Example:
-            $query = "SELECT ID, clName, clPhone, clAddress, caseNum FROM client_details WHERE clName = ?";
-            $stmt = mysqli_prepare($conn, $query);
-            mysqli_stmt_bind_param($stmt, "s", $clientName);
-            mysqli_stmt_execute($stmt);
-            $result = mysqli_stmt_get_result($stmt);
+                include('db_conn.php');
 
-            // Display the client details
-            echo "<h3>Client Details</h3>";
-            echo "<table>";
-            echo "<tr><th>ID</th><th>Name</th><th>Phone</th><th>Address</th><th>Case Number</th></tr>";
+                if ($conn) {
 
-            // Loop through the database results and display client details
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo "<tr><td>{$row['ID']}</td><td>{$row['clName']}</td><td>{$row['clPhone']}</td><td>{$row['clAddress']}</td><td>{$row['caseNum']}</td></tr>";
-            }
+                    if (isset($_POST['search'])) {
 
-            echo "</table>";
+                        // Retrieving the client details from the database based on the provided name
+                        $clientName = $_POST['clientName'];
 
-            // Close the statement
-            mysqli_stmt_close($stmt);
-        }
-    } else {
-        echo "Database connection error.";
-    }
 
-    // Close the database connection
-    mysqli_close($conn);
-    ?>
-    <!-- <a href="lawfirm_home.php?page=client_management" class="btn btn-secondary">Back</a> -->
-     </div>
-          
-   
+                        $query = "SELECT ID, clName, clPhone, clAddress, caseNum FROM client_details WHERE clName = ?";
+                        $stmt = mysqli_prepare($conn, $query);
+                        mysqli_stmt_bind_param($stmt, "s", $clientName);
+                        mysqli_stmt_execute($stmt);
+                        $result = mysqli_stmt_get_result($stmt);
 
-</div>
 
-</div>
+                        echo "<h3>Client Details</h3>";
+                        echo "<table>";
+                        echo "<tr><th>ID</th><th>Name</th><th>Phone</th><th>Address</th><th>Case Number</th></tr>";
+
+
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo "<tr><td>{$row['ID']}</td><td>{$row['clName']}</td><td>{$row['clPhone']}</td><td>{$row['clAddress']}</td><td>{$row['caseNum']}</td></tr>";
+                        }
+
+                        echo "</table>";
+
+
+                        mysqli_stmt_close($stmt);
+                    }
+                } else {
+                    echo "Database connection error.";
+                }
+
+
+                mysqli_close($conn);
+                ?>
+                <!-- <a href="lawfirm_home.php?page=client_management" class="btn btn-secondary">Back</a> -->
+            </div>
+
+
+
+        </div>
+
+    </div>
 </body>
 
 </html>

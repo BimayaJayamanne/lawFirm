@@ -8,10 +8,8 @@
 <h2 class="display-4">Case Management</h2>
 
 <?php
-// Check the specific action requested (search or add)
 $action = isset($_GET['action']) ? $_GET['action'] : '';
 
-// Include the corresponding PHP file based on the action
 switch ($action) {
     case 'search':
         include('search_case.php');
@@ -20,7 +18,6 @@ switch ($action) {
         include('add_case.php');
         break;
     default:
-        // Display a default message or options
 
         echo '<p>Please select an option: 
                 <div class="d-grid gap-2">

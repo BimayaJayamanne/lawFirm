@@ -17,11 +17,9 @@
         <form method="post" action="">
             <label for="clName">Name:</label>
             <select name="clName" id="clNameSelect" required>
-                <!-- Options will be dynamically populated here -->
             </select>
             <label for="caseNum">Case Number:</label>
             <select name="caseNum" id="caseNumSelect" required>
-                <!-- Options will be dynamically populated here -->
             </select>
 
             <label for="invoiceDate">Invoice Date:</label>

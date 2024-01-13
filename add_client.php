@@ -31,12 +31,12 @@
     </form>
 
     <?php
-    // Include the database connection file
+   
     include('db_conn.php');
 
-    // Check if the connection is successful
+
     if ($conn) {
-        // Handle the form submission
+       
         if (isset($_POST['add'])) {
             // Retrieve the client details from the form
             $clientName = $_POST['clientName'];
@@ -45,23 +45,21 @@
             $clientPhone = $_POST['clientPhone'];
             $clientAddress = $_POST['clientAddress'];
 
-            // Implement your database query to add the new client
+           
             $query = "INSERT INTO client_details (clName, caseNum, clEmail, clPhone, clAddress) VALUES (?, ?, ?,?,?)";
             $stmt = mysqli_prepare($conn, $query);
             mysqli_stmt_bind_param($stmt, "sssss", $clientName, $caseNum, $clientEmail, $clientPhone,$clientAddress);
 
-            // Execute the query
+            // Execute
             if (mysqli_stmt_execute($stmt)) {
                 echo "<p>Client added successfully!</p>";
             } else {
                 echo "<p>Error adding client: " . mysqli_error($conn) . "</p>";
             }
 
-            // Close the statement
             mysqli_stmt_close($stmt);
         }
 
-        // Close the database connection
         mysqli_close($conn);
     } else {
         echo "Database connection error.";
