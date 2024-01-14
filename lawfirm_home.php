@@ -11,6 +11,12 @@ if (isset($_SESSION['id']) && isset($_SESSION['userName'])) {
      <head>
           <title> Law Firm</title>
           <link rel="stylesheet" type="text/css" href="style.css">
+          <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
      </head>
 
      <body>
@@ -32,17 +38,16 @@ if (isset($_SESSION['id']) && isset($_SESSION['userName'])) {
                     <li><a href="lawfirm_home.php?page=dashboard">Dashboard</a></li>
                     <li><a href="lawfirm_home.php?page=client_management">Client Management</a></li>
                     <li><a href="lawfirm_home.php?page=case_management">Case Management</a></li>
-                    <!-- <li><a href="lawfirm_home.php?page=forms">Forms</a></li> -->
                     <li><a href="lawfirm_home.php?page=billing_and_payments">Billing and Payments</a></li>
                </ul>
           </nav>
           <div class="content"id="content">
                <?php
-               // Get the value of the 'page' parameter from the URL, defaulting to 'dashboard' if not present
+               
                $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
 
-               // Define an array of valid pages
-               $validPages = ['dashboard', 'client_management', 'case_management', 'forms', 'billing_and_payments'];
+              
+               $validPages = ['dashboard', 'client_management', 'case_management', 'billing_and_payments'];
 
               
                if (in_array($page, $validPages)) {
